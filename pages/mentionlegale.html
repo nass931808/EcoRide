@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentions Légales - EcoRide</title>
+    <!--Feuille de style du site + icônes FontAwesome -->
+  <link rel="stylesheet" href="../styles/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- En-tête du site avec la barre de navigation -->
+  <header>
+    <nav class="navbar">
+      <!-- Logo et titre du site -->
+      <a href="Ecoride.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
+        <img src="../images/logo.png" alt="Logo EcoRide">
+        <h1 class="logo-title">EcoRide</h1>
+      </a>
+      <!-- Menu de navigation principal -->
+      <ul class="menu">
+        <li><a href="Ecoride.html">Accueil</a></li>
+        <li><a href="covoiturages.html">Covoiturages</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <!-- Menu déroulant Mon Compte -->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Mon Compte</a>
+          <ul class="dropdown-menu">
+            <li><a href="profil.html">Profil</a></li>
+            <li><a href="historique.html">Historique</a></li>
+            <li><a href="publiertrajet.html">Publier un Trajet</a></li>
+          </ul>
+        </li>
+        <!-- Bouton de connexion/inscription -->
+        <li><a class="btn-auth" href="#auth-modal">Connexion / Inscription</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Section principale des mentions légales -->
+  <main>
+    <h1>Mentions Légales</h1>
+    <p>Bienvenue sur la page des mentions légales d'EcoRide. En utilisant notre plateforme, vous acceptez les conditions énoncées ci-dessous.</p>
+    <h2>Éditeur du Site</h2>
+    <p>EcoRide est une plateforme de covoiturage écologique éditée par EcoRide SARL, immatriculée au RCS de Paris sous le numéro 123 456 789.</p>
+    <h2>Hébergement</h2>
+    <p>Le site est hébergé par :<br>
+      Hébergeur XYZ<br>
+      Adresse de l'hébergeur<br>
+      Téléphone : 01 23 45 67 89<br>
+      Email : contact@hebergeurxyz.com</p>
+    <h2>Propriété Intellectuelle</h2>
+    <p>Tout le contenu présent sur EcoRide, y compris les textes, images, logos et icônes, est la propriété d'EcoRide ou de ses partenaires et est protégé par les lois sur la propriété intellectuelle.</p>
+    <h2>Responsabilité</h2> 
+    <p>EcoRide s'efforce de fournir des informations précises et à jour. Cependant, nous ne pouvons garantir l'exactitude, la complétude ou l'actualité des informations fournies sur notre site.</p>
+    <h2>Protection des Données Personnelles</h2>
+    <p>Nous nous engageons à protéger votre vie privée. Pour plus d'informations, veuillez consulter notre Politique de Confidentialité.</p>
+  </main>
+
+  <!-- Fenêtre modale de connexion/inscription -->
+        <div class="modal-overlay" id="auth-modal">
+            <div class="modal-card">
+                <button class="modal-close" data-close-modal>&times;</button>
+                <div class="modal-tabs">
+                    <button class="modal-tab active" data-tab="login">Connexion</button>
+                    <button class="modal-tab" data-tab="signup">Inscription</button>
+                </div>
+
+                <form class="form" id="login-form">
+                    <label for="email-modal">Email</label>
+                    <input type="email" id="email-modal" name="email" required>
+                    <label for="password-modal">Mot de passe</label>
+                    <input type="password" id="password-modal" name="password" required>
+                    <a class="modal-forgot" href="#">Mot de passe oublié ?</a>
+                    <div class="modal-actions">
+                        <button type="button" class="btn-submit btn-secondary" data-close-modal>Annuler</button>
+                        <button type="submit" class="btn-submit">Se connecter</button>
+                    </div>
+                </form>
+
+                <form class="form hidden" id="signup-form">
+                    <label for="name-signup">Nom</label>
+                    <input type="text" id="name-signup" name="name" required>
+                    <label for="email-signup">Email</label>
+                    <input type="email" id="email-signup" name="email" required>
+                    <label for="password-signup">Mot de passe</label>
+                    <input type="password" id="password-signup" name="password" required>
+                    <div class="modal-actions">
+                        <button type="button" class="btn-submit btn-secondary" data-close-modal>Annuler</button>
+                        <button type="submit" class="btn-submit">S'inscrire</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    <!-- Pied de page avec infos de contact, réseaux sociaux et mentions légales -->
+  <footer>
+    <p>&copy; 2025 EcoRide. Tous droits réservés.</p>
+    <ul class="footer-menu">
+      <li><a href="mentionlegale.html">Mentions Légales</a></li>
+      <li><a href="contact.html">Contactez-Nous</a></li>
+      <li><a href="mailto:contact@ecoride.local">contact@ecoride.local</a></li>
+    </ul>
+    <div class="footer-info">
+      <a href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+        <i class="fa-brands fa-facebook"></i>
+      </a>
+      <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+      <span>Suivez-nous</span>
+    </div>
+  </footer>
+  <!-- Script JS principal du site pour gérer l'interactivité -->
+  <script src="../scripts/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publier un Trajet - EcoRide</title>
+      <!--Feuille de style du site + icônes FontAwesome -->
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Menu de navigation principal -->
+<header>
+    <nav class="navbar">
+         <a href="Ecoride.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
+                <img src="../images/logo.png" alt="Logo EcoRide">
+                <h1 class="logo-title">EcoRide</h1>
+         </a>
+            <ul class="menu">
+                <li><a href="Ecoride.html">Accueil</a></li>
+                <li><a href="covoiturages.html">Covoiturages</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <!-- Menu déroulant Mon Compte -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Mon Compte</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="profil.html">Profil</a></li>
+                        <li><a href="historique.html">Historique</a></li>
+                        <li><a href="publiertrajet.html">Publier un Trajet</a></li>
+                    </ul>
+                </li>
+                <!-- Bouton de connexion/inscription -->
+                <li><a class="btn-auth" href="#auth-modal">Connexion / Inscription</a></li>
+            </ul>
+    </nav>
+</header>
+
+    <!-- Section principale pour publier un trajet -->
+    <main class="publish-trip"> 
+        <!-- Titre de la page -->
+        <h1>Publier un Trajet</h1>
+        <!-- Formulaire de publication de trajet -->
+        <form class="publish-form" id="publish-form">
+                <label for="departure">Lieu de Départ:</label>
+                <input type="text" id="departure" name="departure" required>
+                <label for="destination">Destination:</label>
+                <input type="text" id="destination" name="destination" required>
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+                <label for="time">Heure:</label>
+                <input type="time" id="time" name="time" required>
+                <label for="vehicule">Véhicule:</label>
+                <select id="vehicule" name="vehicule" required></select>
+                <label for="places">Nombre de places:</label>
+                <input type="number" id="places" name="places" min="1" max="6" value="2" required>
+                <label for="prix">Prix (€):</label>
+                <input type="number" id="prix" name="prix" min="0" step="1" value="10" required>
+                <label><input type="checkbox" id="eco"> Trajet écologique</label>
+                <button type="submit" class="btn-submit">Publier</button>
+        </form>
+    </main>
+
+    <!-- Fenêtre modale de connexion/inscription -->
+    <div class="modal-overlay" id="auth-modal">
+        <div class="modal-card">
+            <button class="modal-close" data-close-modal>&times;</button>
+            <div class="modal-tabs">
+                <button class="modal-tab active" data-tab="login">Connexion</button>
+                <button class="modal-tab" data-tab="signup">Inscription</button>
+            </div>
+
+            <!-- Formulaire de connexion -->
+            <form class="form" id="login-form" action="#" method="post">
+                <label for="email-modal">Email</label>
+                <input type="email" id="email-modal" name="email" required>
+                <label for="password-modal">Mot de passe</label>
+                <input type="password" id="password-modal" name="password" required>
+                <a class="modal-forgot" href="#">Mot de passe oublié ?</a>
+                <div class="modal-actions">
+                    <button type="button" class="btn-submit btn-secondary" data-close-modal>Annuler</button>
+                    <button type="submit" class="btn-submit">Se connecter</button>
+                </div>
+            </form>
+
+            <!-- Formulaire d'inscription -->
+            <form class="form hidden" id="signup-form" action="#" method="post">
+                <label for="name-signup">Nom</label>
+                <input type="text" id="name-signup" name="name" required>
+                <label for="email-signup">Email</label>
+                <input type="email" id="email-signup" name="email" required>
+                <label for="password-signup">Mot de passe</label>
+                <input type="password" id="password-signup" name="password" required>
+                <div class="modal-actions">
+                    <button type="button" class="btn-submit btn-secondary" data-close-modal>Annuler</button>
+                    <button type="submit" class="btn-submit">S'inscrire</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+ <!-- Pied de page avec infos de contact, réseaux sociaux et mentions légales -->
+    <footer>
+        <p>&copy; 2025 EcoRide. Tous droits réservés.</p>
+        <ul class="footer-menu">
+            <li><a href="mentionlegale.html">Mentions Légales</a></li>
+            <li><a href="contact.html">Contactez-Nous</a></li>
+            <li><a href="mailto:contact@ecoride.local">contact@ecoride.local</a></li>
+        </ul>
+        <div class="footer-info">
+            <a href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <span>Suivez-nous</span>
+        </div>
+    </footer>
+    <script src="../scripts/script.js"></script>
+</body>
+</html>

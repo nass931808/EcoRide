@@ -1,0 +1,673 @@
+
+/*
+  Feuille de style principale EcoRide
+*/
+
+/*Sélecteur universel : enlève les marges et paddings par défaut, et gère la boîte pour tous les éléments */
+
+* {
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
+html {
+  scroll-behavior: smooth; 
+}
+
+body {
+  font-family: 'Georgia', 'Garamond', serif; 
+  line-height: 1.8; 
+  color: #1a1a1a; 
+  background-image: url('../images/background.png'); 
+  background-size: cover; 
+  background-position: center; 
+  background-attachment: fixed; 
+  background-repeat: no-repeat; 
+  min-height: 100vh; 
+}
+
+/*  BARRE DE NAVIGATION (NAVBAR) */
+header {
+  background: #ffffff; 
+  border-bottom: 1px solid #f0f0f0; 
+  position: sticky; 
+  top: 0;
+  z-index: 100;   
+  font-family: 'Georgia', 'Garamond', serif;
+}
+
+.navbar {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 32px 80px; 
+  max-width: 1600px; 
+  margin: 0 auto; 
+}
+
+.navbar .logo {
+  display: flex; 
+  align-items: center;
+  gap: 12px; 
+  text-decoration: none; 
+}
+
+.navbar .logo img {
+  width: 50px; 
+  height: 50px;
+}
+
+.navbar .logo-title {
+  font-size: 22px; 
+  font-weight: 700; 
+  color: #5a8f6c; 
+  text-transform: uppercase; 
+}
+
+.menu {
+  display: flex; 
+  gap: 50px; 
+  list-style: none; 
+}
+
+.menu a {
+  color: #1a1a1a; 
+  text-decoration: none; 
+  font-weight: 500;
+  font-size: 15px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;  
+}
+
+.menu a.btn-auth {
+  color: #fff; 
+}
+
+.menu a:hover {
+  color: #1a1a1a; 
+}
+
+.btn-auth {
+  background: #5a8f6c; 
+  color: #fff; 
+  border: none;
+  padding: 10px 26px;
+  border-radius: 4px; 
+  cursor: pointer; 
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease; 
+}
+
+.btn-auth:hover {
+  background: #4a7c59; 
+}
+
+/*  MENU DÉROULANT (DROPDOWN) */
+.dropdown {
+  position: relative; 
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dropdown-toggle::after {
+  content: '▼'; 
+  font-size: 10px;
+  transition: transform 0.3s ease;
+}
+
+.dropdown.open .dropdown-toggle::after {
+  transform: rotate(180deg); 
+}
+
+.dropdown-menu {
+  position: absolute; 
+  top: 100%;
+  left: 0;
+  background: #fff; 
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  list-style: none;
+  min-width: 180px;
+  margin-top: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); 
+  display: none; 
+  z-index: 1000;
+}
+
+.dropdown.open .dropdown-menu {
+  display: block; 
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 12px 16px;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: capitalize;
+  transition: background-color 0.3s ease; 
+}
+
+.dropdown-menu li a:hover {
+  background: #f5f5f5; 
+  color: #5a8f6c; 
+}
+
+/* CONTENU PRINCIPAL (MAIN) */
+main {
+  padding: 180px 80px; 
+  background-image: url('../images/background.png'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 70vh; 
+  position: relative;
+}
+
+main::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4); 
+  z-index: 1;
+}
+
+main > * {
+  position: relative;
+  z-index: 2; 
+}
+
+main h1 {
+  font-size: 72px; 
+  margin-bottom: 40px;
+  color: #ffffff;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+}
+
+main h2 {
+  font-size: 48px;
+  margin-bottom: 32px;
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+main p {
+  font-size: 18px;
+  color: #ffffff;
+  margin-bottom: 28px;
+  line-height: 1.8;
+}
+
+main .img {
+  display: none; 
+}
+
+/* SECTIONS ET BLOCS DE FONCTIONNALITÉS */
+.section,
+.features {
+  padding: 80px; 
+  background: rgba(240, 249, 244, 0.93); 
+  backdrop-filter: blur(8px); 
+  margin: 20px 0;
+}
+
+.section:nth-child(even) {
+  background: rgba(255, 255, 255, 0.93);
+  backdrop-filter: blur(8px);
+}
+
+.section h2,
+.features h2 {
+  font-size: 56px;
+  margin-bottom: 32px;
+  color: #1a1a1a;
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.section p,
+.features p {
+  color: #666;
+  margin-bottom: 40px;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+/* CARTES ET LISTES */
+.card-grid,
+.trip-cards,
+.features-list,
+.trip-list {
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+  gap: 40px; 
+  margin-top: 48px;
+  list-style: none; 
+}
+
+.card,
+.trip-card,
+.features-list li,
+.trip-list li {
+  background: rgba(255, 255, 255, 0.88); 
+  border: 1px solid #e5e5e5;
+  border-radius: 8px; 
+  padding: 40px;
+  transition: all 0.3s ease;
+  text-align: left;
+  list-style: none;
+  backdrop-filter: blur(5px);
+}
+
+.card:hover,
+.trip-card:hover,
+.features-list li:hover,
+.trip-list li:hover {
+  border-color: #d0d0d0; 
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); 
+  transform: translateY(-6px);
+}
+
+.card-icon,
+.trip-list li i,
+.features-list li i {
+  font-size: 40px; 
+  color: #5a8f6c; 
+  margin-bottom: 20px;
+  display: block;
+}
+
+.card h3,
+.card h2,
+.features-list li strong,
+.trip-list li strong {
+  font-size: 20px;
+  margin-bottom: 16px;
+  color: #1a1a1a;
+  font-weight: 700;
+}
+
+.card p,
+.trip-list li span,
+.features-list li span {
+  color: #666;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/*  FORMULAIRES (FORMS) */
+.form,
+.publish-form {
+  max-width: 600px; 
+  background: rgba(255, 255, 255, 0.88); 
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 48px;
+  margin: 48px auto;
+  backdrop-filter: blur(5px);
+}
+
+.form label,
+.publish-form label {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: #1a1a1a;
+  font-size: 15px;
+}
+
+.form input,
+.form textarea,
+.form select,
+.publish-form input,
+.publish-form textarea,
+.publish-form select {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 20px;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  font-size: 15px;
+  transition: border-color 0.3s ease;
+}
+
+.form input:focus,
+.form textarea:focus,
+.form select:focus,
+.publish-form input:focus,
+.publish-form textarea:focus,
+.publish-form select:focus {
+  outline: none;
+  border-color: #5a8f6c; 
+  box-shadow: 0 0 0 3px rgba(90, 143, 108, 0.1);
+}
+
+.form button,
+.publish-form button,
+.form button[type="submit"],
+.publish-form button[type="submit"],
+.form .btn-submit,
+.publish-form .btn-submit {
+  background: #5a8f6c;
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.form button:hover,
+.publish-form button:hover,
+.form button[type="submit"]:hover,
+.publish-form button[type="submit"]:hover,
+.form .btn-submit:hover,
+.publish-form .btn-submit:hover {
+  background: #4a7c59;
+  box-shadow: 0 4px 12px rgba(90, 143, 108, 0.3);
+}
+
+/* FENÊTRES MODALES (MODAL) */
+.modal-overlay {
+  display: none; 
+  position: fixed; 
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-overlay.is-open {
+  display: flex; 
+}
+
+.modal-card {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 40px;
+  max-width: 450px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); 
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 28px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: #999;
+  transition: color 0.3s;
+}
+
+.modal-close:hover {
+  color: #1a1a1a; 
+}
+
+.modal-card h2 {
+  font-size: 24px;
+  margin-bottom: 24px;
+  color: #1a1a1a;
+  font-weight: 700;
+}
+
+.modal-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.modal-tab {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #f8f9f7;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  color: #666;
+}
+
+.modal-tab.active {
+  background: #5a8f6c;
+  color: #fff;
+  border-color: #5a8f6c;
+}
+
+.modal-forgot {
+  font-size: 13px;
+  color: #5a8f6c;
+  text-decoration: none;
+  display: block;
+  margin: -12px 0 16px 0;
+  font-weight: 500;
+}
+
+.modal-forgot:hover {
+  text-decoration: underline;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.btn-secondary {
+  background: #f8f9f7;
+  color: #666;
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: #e8e8e8;
+}
+
+.modal-card .form {
+  padding: 0;
+  border: none;
+  background: none;
+  margin: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* PIED DE PAGE (FOOTER) */
+footer {
+  background: #1a1a1a; 
+  color: #aaa; 
+  padding: 80px;
+  text-align: center;
+}
+
+footer p {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.footer-menu,
+.footer-info {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.footer-menu a,
+.footer-info a {
+  color: #999;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.footer-menu a:hover,
+.footer-info a:hover {
+  color: #5a8f6c; 
+}
+
+/* AJUSTEMENTS DE FOND ET TRANSPARENCE */
+main {
+  padding: 80px;
+  background: rgba(0, 0, 0, 0.3); 
+  position: relative;
+}
+
+main > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Transparence supplémentaire pour les formulaires */
+.form, .publish-form {
+  background: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(3px);
+}
+
+.card, .trip-card {
+  background: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(3px);
+}
+
+/* RESPONSIVE DESIGN (ADAPTATION MOBILE, TABLETTES, ETC.) */
+
+@media (max-width: 1024px) {
+  /* Adaptation pour tablettes et petits écrans */
+  .navbar {
+    padding: 18px 50px;
+  }
+
+  main {
+    padding: 100px 50px;
+  }
+
+  main h1 {
+    font-size: 48px;
+  }
+
+  .section,
+  .features {
+    padding: 100px 50px;
+  }
+
+  .section h2,
+  .features h2 {
+    font-size: 40px;
+  }
+
+  .menu {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Adaptation pour mobiles */
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 20px;
+  }
+
+  .menu {
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  main {
+    padding: 60px 20px;
+  }
+
+  main h1 {
+    font-size: 36px;
+  }
+
+  main h2 {
+    font-size: 28px;
+  }
+
+  .section,
+  .features {
+    padding: 60px 20px;
+  }
+
+  .section h2,
+  .features h2 {
+    font-size: 32px;
+  }
+
+  .card-grid,
+  .trip-cards,
+  .features-list,
+  .trip-list {
+    grid-template-columns: 1fr;
+  }
+
+  footer {
+    padding: 60px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Pour très petits écrans (téléphones) */
+  .navbar {
+    padding: 12px 15px;
+  }
+
+  main h1 {
+    font-size: 28px;
+  }
+
+  main h2 {
+    font-size: 20px;
+  }
+
+  main {
+    padding: 40px 15px;
+  }
+
+  .modal-card {
+    width: 100%;
+  }
+}

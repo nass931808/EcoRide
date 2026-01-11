@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contactez-Nous - EcoRide</title>
+    <!--Feuille de style du site + icônes FontAwesome -->
+  <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- En-tête du site avec la barre de navigation
+       Contient le logo, le menu principal et l'accès à l'authentification -->
+  <header>
+    <nav class="navbar">
+      <!-- Logo et titre du site -->
+      <a href="Ecoride.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
+        <img src="../images/logo.png" alt="Logo EcoRide">
+        <h1 class="logo-title">EcoRide</h1>
+      </a>
+      <!-- Menu de navigation principal -->
+      <ul class="menu">
+        <li><a href="Ecoride.html">Accueil</a></li>
+        <li><a href="covoiturages.html">Covoiturages</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <!-- Menu déroulant Mon Compte -->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Mon Compte</a>
+          <ul class="dropdown-menu">
+            <li><a href="profil.html">Profil</a></li>
+            <li><a href="historique.html">Historique</a></li>
+            <li><a href="publiertrajet.html">Publier un Trajet</a></li>
+          </ul>
+        </li>
+        <!-- Bouton de connexion/inscription -->
+        <li><a class="btn-auth" href="#auth-modal">Connexion / Inscription</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Section principale de contact supprimée -->
+
+  <!-- Bloc de contact stylé comme le reste du site
+       Utilise les composants communs: .section, .section-header, .card-grid, .card -->
+  <section class="section">
+    <div class="section-header">
+      <h2>Nos Coordonnées</h2>
+      <p>Retrouvez notre email, numéro de téléphone et réseaux sociaux.</p>
+    </div>
+
+    <div class="card-grid">
+      <!-- Carte Email: lien mailto et bouton d'action -->
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-envelope"></i></div>
+        <h3>Email</h3>
+        <p><a href="mailto:Ecoride06@gmail.com">Ecoride06@gmail.com</a></p>
+        <button class="btn-auth" onclick="window.location.href='mailto:Ecoride06@gmail.com'">Envoyer un email</button>
+      </div>
+
+      <!-- Carte Téléphone: lien tel et bouton d'appel -->
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-phone"></i></div>
+        <h3>Téléphone</h3>
+        <p><a href="tel:+33612345678">+33 6 12 34 56 78</a></p>
+        <button class="btn-auth" onclick="window.location.href='tel:+33612345678'">Appeler</button>
+      </div>
+
+      <!-- Carte Réseaux sociaux: icônes cliquables vers Facebook, Instagram, LinkedIn -->
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-share-nodes"></i></div>
+        <h3>Réseaux sociaux</h3>
+        <p>Suivez-nous pour les dernières mises à jour.</p>
+        <div style="display:flex; gap:16px; flex-wrap:wrap; align-items:center">
+          <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" style="color:#3b5998; font-size:28px">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+          <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="color:#E1306C; font-size:28px">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style="color:#0A66C2; font-size:28px">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fenêtre modale de connexion/inscription -->
+  <div class="modal-overlay" id="auth-modal">
+    <div class="modal-card">
+      <button class="modal-close" data-close-modal>&times;</button>
+      <div class="modal-tabs">
+        <button class="modal-tab active" data-tab="login">Connexion</button>
+        <button class="modal-tab" data-tab="signup">Inscription</button>
+      </div>
+
+     <!-- Formulaire de connexion -->
+      <form class="form" id="login-form" action="#" method="post">
+        <label for="email-modal">Email</label>
+        <input type="email" id="email-modal" name="email" required>
+        <label for="password-modal">Mot de passe</label>
+        <input type="password" id="password-modal" name="password" required>
+        <a class="modal-forgot" href="#">Mot de passe oublié ?</a>
+        <div class="modal-actions">
+          <button type="button" class="btn-submit btn-secondary" data-close-modal>Annuler</button>
+          <button type="submit" class="btn-submit">Se connecter</button>
+        </div>
+      </form>
+
+     <!-- Formulaire d'inscription -->
+      <form class="form hidden" id="signup-form" action="#" method="post">
+        <label for="name-signup">Nom</label>
+        <input type="text" id="name-signup" name="name" required>
+        <label for="email-signup">Email</label>
+        <input type="email" id="email-signup" name="email" required>
+        <label for="password-signup">Mot de passe</label>
+        <input type="password" id="password-signup" name="password" required>
+        <div class="modal-actions">
+          <button type="button" class="btn-submit btn-secondary" data-close-modal>Annuler</button>
+          <button type="submit" class="btn-submit">S'inscrire</button>
+        </div>
+      </form>
+    </div>
+  </div> 
+
+<!-- Pied de page avec infos de contact, réseaux sociaux et mentions légales
+  Le footer est commun à toutes les pages du site -->
+  <footer>
+    <p>&copy; 2025 EcoRide. Tous droits réservés.</p>
+    <ul class="footer-menu">
+      <li><a href="mentionlegale.html">Mentions Légales</a></li>
+      <li><a href="contact.html">Contactez-Nous</a></li>
+      <li><a href="mailto:contact@ecoride.local">contact@ecoride.local</a></li>
+    </ul>
+    <div class="footer-info">
+      <!-- Icônes sociales cliquables vers les réseaux, texte 'Suivez-nous' sans lien -->
+      <a href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+        <i class="fa-brands fa-facebook"></i>
+      </a>
+      <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+      <span>Suivez-nous</span>
+    </div>
+  </footer>
+  <!-- Script JS principal du site -->
+  <script src="../scripts/script.js"></script>
+</body>
+</html>

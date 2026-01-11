@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoRide - Espace Utilisateur</title>
+  <!--Feuille de style du site + icônes FontAwesome -->
+  <link rel="stylesheet" href="../styles/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<!-- Menu de navigation principal -->
+  <header>
+    <nav class="navbar">
+      <a href="Ecoride.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
+        <img src="../images/logo.png" alt="Logo EcoRide">
+        <h1 class="logo-title">EcoRide</h1>
+      </a>
+      <ul class="menu">
+        <li><a href="Ecoride.html">Accueil</a></li>
+        <li><a href="covoiturages.html">Covoiturages</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      
+        <!-- Menu déroulant Mon Compte -->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Mon Compte</a>
+          <ul class="dropdown-menu">
+            <li><a href="profil.html">Profil</a></li>
+            <li><a href="historique.html">Historique</a></li>
+            <li><a href="publiertrajet.html">Publier un Trajet</a></li>
+          </ul>
+        </li>
+        <!-- Bouton de connexion/inscription -->
+        <li><a class="btn-auth" href="#auth-modal">Connexion / Inscription</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Section principale du profil utilisateur -->
+  <main>
+    <div class="section-header">
+      <h2>Mon profil</h2>
+      <p>Rôle, véhicules et préférences personnelles.</p>
+    </div>
+
+    <div class="card-grid">
+      <!-- Carte informations utilisateur -->
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-id-badge"></i></div>
+        <h3>Informations</h3>
+        <p>Nom: <strong id="user-name">—</strong></p>
+        <p>Email: <strong id="user-email">—</strong></p>
+        <p>Crédits: <strong id="user-credits">0</strong></p>
+        <label style="margin-top:12px">Rôle</label>
+        <select id="user-role">
+          <option value="passager">Passager</option>
+          <option value="chauffeur">Chauffeur</option>
+        </select>
+        <button class="btn-auth" id="save-role" style="margin-top:10px">Sauvegarder</button>
+      </div>
+
+      <!-- Carte gestion des véhicules -->
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-car"></i></div>
+        <h3>Véhicules</h3>
+        <!-- Formulaire pour ajouter un véhicule -->
+        <form class="form" id="vehicule-form">
+          <label for="veh-marque">Marque</label>
+          <input type="text" id="veh-marque" placeholder="Ex: Tesla">
+          <label for="veh-modele">Modèle</label>
+          <input type="text" id="veh-modele" placeholder="Ex: Model 3">
+          <label for="veh-energie">Énergie</label>
+          <select id="veh-energie">
+            <option>Électrique</option>
+            <option>Hybride</option>
+            <option>Essence</option>
+            <option>Diesel</option>
+          </select>
+          <button type="submit" class="btn-submit">Ajouter</button>
+        </form>
+        <!-- Liste des véhicules ajoutés -->
+        <ul id="veh-list" class="trip-list"></ul>
+      </div>
+
+      <!-- Carte gestion des préférences -->
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-list"></i></div>
+        <h3>Préférences</h3>
+        <!-- Formulaire pour ajouter des préférences -->
+        <form class="form" id="prefs-form">
+          <label><input type="checkbox" id="pref-fumeur"> Fumeur</label>
+          <label><input type="checkbox" id="pref-animaux"> Animaux</label>
+          <label for="pref-custom">Préférence personnalisée</label>
+          <input type="text" id="pref-custom" placeholder="Ex: Silence, Musique, etc.">
+          <button type="submit" class="btn-submit">Sauvegarder</button>
+        </form>
+        <!-- Liste des préférences -->
+        <ul id="prefs-list" class="trip-list"></ul>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal de connexion/inscription -->
+  <div class="modal-overlay" id="auth-modal">
+    <div class="modal-card">
+      <button class="modal-close" data-close-modal>&times;</button>
+      <div class="modal-tabs">
+        <button class="modal-tab active" data-tab="login">Connexion</button>
+        <button class="modal-tab" data-tab="signup">Inscription</button>
+      </div>
+
+      <form class="form" id="login-form">
+        <label for="email-modal">Email</label>
+        <input type="email" id="email-modal" name="email" required>
+        <label for="password-modal">Mot de passe</label>
+        <input type="password" id="password-modal" name="password" required>
+        <a class="modal-forgot" href="#">Mot de passe oublié ?</a>
+        <div class="modal-actions">
+          <button type="button" class="btn-submit btn-secondary" data-close-modal>Annuler</button>
+          <button type="submit" class="btn-submit">Se connecter</button>
+        </div>
+      </form>
+
+      <form class="form hidden" id="signup-form">
+        <label for="name-signup">Nom</label>
+        <input type="text" id="name-signup" name="name" required>
+        <label for="email-signup">Email</label>
+        <input type="email" id="email-signup" name="email" required>
+        <label for="password-signup">Mot de passe</label>
+        <input type="password" id="password-signup" name="password" required>
+        <div class="modal-actions">
+          <button type="button" class="btn-submit btn-secondary" data-close-modal>Annuler</button>
+          <button type="submit" class="btn-submit">S'inscrire</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+ <!-- Pied de page avec infos de contact, réseaux sociaux et mentions légales -->
+  <footer>
+    <p>&copy; 2025 EcoRide. Tous droits réservés.</p>
+    <ul class="footer-menu">
+      <li><a href="mentionlegale.html">Mentions Légales</a></li>
+      <li><a href="contact.html">Contactez-Nous</a></li>
+      <li><a href="mailto:contact@ecoride.local">contact@ecoride.local</a></li>
+    </ul>
+    <div class="footer-info">
+      <a href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+        <i class="fa-brands fa-facebook"></i>
+      </a>
+      <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+      <span>Suivez-nous</span>
+    </div>
+  </footer>
+    <script src="../scripts/script.js"></script>
+</body>
+</html>

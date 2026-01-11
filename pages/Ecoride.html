@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoRide - Plateforme de Covoiturage Écologique </title>
+  <!--Feuille de style du site + icônes FontAwesome -->
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Menu de navigation principal -->
+     <header>
+      <nav class="navbar">
+        <a href="Ecoride.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
+            <img src="../images/logo.png" alt="Logo EcoRide">
+            <h1 class="logo-title">EcoRide</h1> 
+        </a>
+        <ul class="menu">
+          <li><a href="Ecoride.html">Accueil</a></li>
+          <li><a href="covoiturages.html">Covoiturages</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <!-- Menu déroulant Mon Compte -->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle">Mon Compte</a>
+            <ul class="dropdown-menu">
+              <li><a href="profil.html">Profil</a></li>
+              <li><a href="historique.html">Historique</a></li>
+              <li><a href="publiertrajet.html">Publier un Trajet</a></li>
+            </ul>
+          </li>
+          <!-- Bouton de connexion/inscription -->
+          <li><a class="btn-auth" href="#auth-modal">Connexion / Inscription</a></li>
+
+        </ul>
+      </nav> 
+    </header>
+
+    <!-- Contenu principal de la page d'accueil -->
+    <main> 
+        <!-- Titre principal et présentation -->
+        <h1>Bienvenue sur EcoRide </h1>
+        <p>Votre plateforme de covoiturage écologique </p>
+        <img class="img" src="../images/background.png" >
+        <h2>Réduisez votre empreinte carbone en partageant vos trajets</h2>
+        <p>Rejoignez notre communauté de conducteurs et passagers engagés pour un avenir plus vert.</p>
+    </main>
+
+    <!-- Section de recherche d'itinéraire -->
+    <section class="section">
+        <div class="section-header">
+            <h2>Recherche d'itinéraire</h2>
+            <p>Trouvez un covoiturage écologique proche de vous.</p>
+        </div>
+        <form class="form" id="search-form">
+            <label for="depart">Ville de départ</label>
+            <input type="text" id="depart" name="depart" placeholder="Ex: Paris" required>
+            <label for="arrivee">Ville d'arrivée</label>
+            <input type="text" id="arrivee" name="arrivee" placeholder="Ex: Lyon" required>
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date" required>
+            <button type="submit" class="btn-submit">Rechercher</button>
+        </form>
+        <!-- Résultats de la recherche -->
+        <ul class="trip-list" id="search-results"></ul>
+    </section>
+
+    <!-- Section avantages EcoRide -->
+    <section class="features">
+        <h2>Pourquoi choisir EcoRide ?</h2>
+        <ul class="features-list">
+            <li>
+                <i class="fa-solid fa-leaf"></i>
+                <span> Covoiturage écologique</span>
+            </li>
+            <li>
+                <i class="fa-solid fa-users"></i>
+                <span> Communauté engagée</span>
+            </li>
+            <li>
+                <i class="fa-solid fa-route"></i>
+                <span> Trajets flexibles</span>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Section explication du fonctionnement -->
+    <section class="section how-it-works">
+        <div class="section-header">
+            <h2>Comment ça marche</h2>
+            <p>Publiez un trajet, trouvez un covoiturage, ou partagez vos places en quelques clics.</p>
+        </div>
+        <div class="card-grid">
+            <!-- Carte 1 : Publier un trajet -->
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                <h3>Publiez</h3>
+                <p>Ajoutez votre trajet, vos horaires et le nombre de places disponibles.</p>
+            </div>
+            <!-- Carte 2 : Connecter avec des passagers -->
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-users-gear"></i></div>
+                <h3>Connectez</h3>
+                <p>Les passagers intéressés vous contactent, vous choisissez vos covoitureurs.</p>
+            </div>
+            <!-- Carte 3 : Rouler vert -->
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-leaf"></i></div>
+                <h3>Roulez vert</h3>
+                <p>Réduisez les coûts et l'empreinte carbone en partageant la route.</p>
+            </div>
+        </div>
+    </section>
+
+        <div class="modal-overlay" id="auth-modal">
+            <div class="modal-card">
+                <button class="modal-close" data-close-modal>&times;</button>
+                <div class="modal-tabs">
+                    <button class="modal-tab active" data-tab="login">Connexion</button>
+                    <button class="modal-tab" data-tab="signup">Inscription</button>
+                </div>
+
+                <form class="form" id="login-form">
+                    <label for="email-modal">Email</label>
+                    <input type="email" id="email-modal" name="email" required>
+                    <label for="password-modal">Mot de passe</label>
+                    <input type="password" id="password-modal" name="password" required>
+                    <a class="modal-forgot" href="#">Mot de passe oublié ?</a>
+                    <div class="modal-actions">
+                        <button type="button" class="btn-submit btn-secondary" data-close-modal>Annuler</button>
+                        <button type="submit" class="btn-submit">Se connecter</button>
+                    </div>
+                </form>
+
+                <form class="form hidden" id="signup-form">
+                    <label for="name-signup">Nom</label>
+                    <input type="text" id="name-signup" name="name" required>
+                    <label for="email-signup">Email</label>
+                    <input type="email" id="email-signup" name="email" required>
+                    <label for="password-signup">Mot de passe</label>
+                    <input type="password" id="password-signup" name="password" required>
+                    <div class="modal-actions">
+                        <button type="button" class="btn-submit btn-secondary" data-close-modal>Annuler</button>
+                        <button type="submit" class="btn-submit">S'inscrire</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    <!-- Pied de page avec infos de contact, réseaux sociaux et mentions légales -->
+    <footer>
+        <p>&copy; 2025 EcoRide. Tous droits réservés.</p>
+        <ul class="footer-menu">
+            <li><a href="mentionlegale.html">Mentions Légales</a></li>
+            <li><a href="contact.html">Contactez-Nous</a></li>
+            <li><a href="mailto:contact@ecoride.local">contact@ecoride.local</a></li>
+        </ul>
+        <div class="footer-info">
+            <a href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <span>Suivez-nous</span>
+        </div>
+    </footer>
+    <script src="../scripts/script.js"></script>
+</body>
+</html>
